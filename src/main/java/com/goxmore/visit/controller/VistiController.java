@@ -2,17 +2,17 @@ package com.goxmore.visit.controller;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.goxmore.visit.model.Visit;
 import com.goxmore.visit.service.VisitService;
 
-import org.springframework.web.bind.annotation.PostMapping;
-
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-
 @RestController
+@RequestMapping("apitavt")
 public class VistiController {
   private final VisitService visitService;
 
@@ -20,15 +20,20 @@ public class VistiController {
     this.visitService = visitService;
   }
 
-  @PostMapping("/api/visit")
+  @PostMapping("/logvisit")
   public Visit logVisit(@RequestBody Visit visit) {
     return visitService.logVist(visit);
 
   }
 
-  @GetMapping("/api/visit")
+  @GetMapping("/getvisits")
   public List<Visit> getVisits() {
     return visitService.getVisits();
+  }
+
+  @GetMapping("/test")
+  public String getTest() {
+    return "get test1";
   }
 
 }

@@ -14,27 +14,24 @@ public class Visit {
   @GeneratedValue
   private Long id;
 
-  private String name;
+  private String userAgent;
 
-  @Email
-  private String email;
-
-  @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
   private LocalDateTime accessTime;
 
-  private String page;
+  private String pageUrl;
 
   private String ipAddress;
 
   public Visit() {
   }
 
-  public Visit(Long id, String name, String email, LocalDateTime accessTime, String page, String ipAddress) {
+
+
+  public Visit(Long id, String userAgent, LocalDateTime accessTime, String pageUrl, String ipAddress) {
     this.id = id;
-    this.name = name;
-    this.email = email;
+    this.userAgent = userAgent;
     this.accessTime = accessTime;
-    this.page = page;
+    this.pageUrl = pageUrl;
     this.ipAddress = ipAddress;
   }
 
@@ -46,20 +43,12 @@ public class Visit {
     this.id = id;
   }
 
-  public String getName() {
-    return this.name;
+  public String getUserAgent() {
+    return this.userAgent;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
+  public void setUserAgent(String userAgent) {
+    this.userAgent = userAgent;
   }
 
   public LocalDateTime getAccessTime() {
@@ -70,12 +59,12 @@ public class Visit {
     this.accessTime = accessTime;
   }
 
-  public String getPage() {
-    return this.page;
+  public String getPageUrl() {
+    return this.pageUrl;
   }
 
-  public void setPage(String page) {
-    this.page = page;
+  public void setPageUrl(String pageUrl) {
+    this.pageUrl = pageUrl;
   }
 
   public String getIpAddress() {
